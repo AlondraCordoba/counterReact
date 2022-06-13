@@ -27,6 +27,7 @@ function App() {
       counter: 0,
     },
   ]);
+
   return (
     <div className="App" data-spy="scroll" data-target="#navbar" data-offset="30">
       <Navbar fixed="top" className="navbar">
@@ -53,8 +54,8 @@ function App() {
         <br/> <br/><br/>
        <Container className="container mt-5">
             <h1 style={{fontWeight: 'bold'}}>React Practice</h1>
-            <p class="tagline">Integral Web Development</p>
-            <p class="tagline">Wendy Alondra Cordoba Esparza</p>
+            <p className="tagline">Integral Web Development</p>
+            <p className="tagline">Wendy Alondra Cordoba Esparza</p>
             <br/><br/><br/><br/><br/><br/><br/>
         </Container>
       </Container>
@@ -66,43 +67,49 @@ function App() {
                 <h3>Add People</h3>
                 <hr></hr>
                <Container  className="justify-content-center">
-               <InputGroup className="mb-2">
-                  <Form.Control
-                    aria-label="First name"
-                    className="col-3"
-                    style={{marginRight: '5px'}}
-                    placeholder="Name"
-                    type="text"
-                    name="name"
-                    onChange={(event) => {
-                      setName(event.target.value);
+                <Form>
+                    <InputGroup className="mb-2">
+                      <Form.Control
+                        aria-label="First name"
+                        className="col-3"
+                        controlid="validationCustom01"
+                        style={{marginRight: '5px'}}
+                        placeholder="Name"
+                        type="text"
+                        name="name"
+                        required
+                        onChange={(event) => {
+                          setName(event.target.value);
+                        }}
+                      />
+                      <Form.Control
+                        aria-label="Last name"
+                        className="col-3"
+                        controlid="validationCustom02"
+                        placeholder="Last name"
+                        type="text"
+                        name="lastName"
+                        required
+                        onChange={(event) => {
+                          setLastname(event.target.value);
+                        }}
+                      />
+                  </InputGroup>
+                  <Button
+                    variant="btn btn-outline-dark mb-2"
+                    type="button"
+                    onClick={() => {
+                      setPeople((current) => [{ name, lastName }, ...current]);
                     }}
-                  />
-                  <Form.Control
-                    aria-label="Last name"
-                    className="col-3"
-                    placeholder="Last name"
-                    type="text"
-                    name="lastName"
-                    onChange={(event) => {
-                      setLastname(event.target.value);
-                    }}
-                  />
-              </InputGroup>
-              <Button
-                variant="btn btn-outline-dark"
-                onClick={() => {
-                  setPeople((current) => [{ name, lastName }, ...current]);
-                }}
-              >
+                  >
                   Add
-              </Button>
+                  </Button>
+                </Form>
               <br />
-                  <ol class="list">
+                  <ol className="list">
                     {people.map((person, idx) => (
                       <li id={idx}><a href="">{`${person.name} ${person.lastName}`}</a></li>
                     ))}
-                    {/* <li><a href="">List item</a></li> */}
                   </ol>
                </Container>
             </Container>
