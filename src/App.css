@@ -305,3 +305,53 @@ p.lead {
 h3{
   font-size: 25px;
 }
+ol {
+  counter-reset: li;
+  list-style: none; 
+  *list-style: decimal;
+  font: 15px;
+  padding: 0;
+  margin-bottom: 4em;
+}
+.list a{
+  position: relative;
+  display: block;
+  padding: .4em .4em .4em 2em;
+  *padding: .4em;
+  margin: .5em 0;
+  background: rgb(221, 221, 221);
+  color: #444;
+  text-decoration: none;
+  border-radius: .3em;
+  transition: all .3s ease-out;
+  width: 35%;
+}
+
+.list a{
+  background: rgba(255, 255, 255, 0.712);
+}
+
+.list a:hover{
+  background: rgba(247, 247, 247, 0.615);
+}
+
+.list a:hover:before{
+  transform: rotate(360deg);
+}
+
+.list a:before{
+  content: counter(li);
+  counter-increment: li;
+  position: absolute;
+  left: -1.3em;
+  top: 50%;
+  margin-top: -1.3em;
+  background: #87ceeb;
+  height: 2em;
+  width: 2em;
+  line-height: 2em;
+  border: .1em solid rgba(75, 72, 72, 0.236);
+  text-align: center;
+  font-weight: bold;
+  border-radius: 2em;
+}

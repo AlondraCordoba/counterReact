@@ -6,6 +6,9 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
+import InputGroup from 'react-bootstrap/InputGroup';
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 
 import "./App.css";
@@ -47,6 +50,18 @@ function App() {
             <Container className="section-title">
                 <small>PEOPLE</small>
                 <h3>Add People</h3>
+                <hr></hr>
+               <Container  className="justify-content-center">
+               <InputGroup className="mb-2">
+                  <Form.Control aria-label="First name" className="col-3" style={{marginRight: '5px'}} placeholder="Name"/>
+                  <Form.Control aria-label="Last name" className="col-3" placeholder="Last name"/>
+              </InputGroup>
+              <Button variant="btn btn-outline-dark">Add</Button>
+
+                  <ol class="list">
+                    <li><a href="">List item</a></li>
+                  </ol>
+               </Container>
             </Container>
         </Container>
       </Container>
@@ -56,6 +71,7 @@ function App() {
             <Container className="section-title">
                 <small>CALCULATOR</small>
                 <h3>Add People</h3>
+                <hr></hr>
             </Container>
         </Container>
       </Container>
