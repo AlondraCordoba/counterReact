@@ -14,6 +14,19 @@ import Col from 'react-bootstrap/Col';
 import "./App.css";
 
 function App() {
+  const [name, setName] = useState("");
+  const [lastName, setLastname] = useState("");
+
+  const [people, setPeople] = useState([
+    {
+      name: "Alondra",
+      lastName: "Cordoba",
+      age: 20,
+      favouriteFood: "Seafood",
+      favouriteColour: "Beige",
+      counter: 0,
+    },
+  ]);
   return (
     <div className="App" data-spy="scroll" data-target="#navbar" data-offset="30">
       <Navbar fixed="top" className="navbar">
@@ -27,9 +40,9 @@ function App() {
           <Navbar.Collapse className="justify-content-end">
             <Navbar.Text className="navbar-nav">
               <Nav className="me-auto nav-item">
-                <Nav.Link className="nav-link active" href="#">HOME</Nav.Link>
-                <Nav.Link className="nav-link" href="#">PEOPLE</Nav.Link>
-                <Nav.Link className="nav-link" href="#">CALCULATOR</Nav.Link>
+                <Nav.Link className="nav-link" href="#home">HOME</Nav.Link>
+                <Nav.Link className="nav-link" href="#people">PEOPLE</Nav.Link>
+                <Nav.Link className="nav-link" href="#calculator">CALCULATOR</Nav.Link>
             </Nav>
            </Navbar.Text>
           </Navbar.Collapse>
@@ -37,6 +50,7 @@ function App() {
       </Navbar>
 
       <Container className="bg-gradient header" id="home">
+        <br/> <br/><br/>
        <Container className="container mt-5">
             <h1 style={{fontWeight: 'bold'}}>React Practice</h1>
             <p class="tagline">Integral Web Development</p>
@@ -53,13 +67,42 @@ function App() {
                 <hr></hr>
                <Container  className="justify-content-center">
                <InputGroup className="mb-2">
-                  <Form.Control aria-label="First name" className="col-3" style={{marginRight: '5px'}} placeholder="Name"/>
-                  <Form.Control aria-label="Last name" className="col-3" placeholder="Last name"/>
+                  <Form.Control
+                    aria-label="First name"
+                    className="col-3"
+                    style={{marginRight: '5px'}}
+                    placeholder="Name"
+                    type="text"
+                    name="name"
+                    onChange={(event) => {
+                      setName(event.target.value);
+                    }}
+                  />
+                  <Form.Control
+                    aria-label="Last name"
+                    className="col-3"
+                    placeholder="Last name"
+                    type="text"
+                    name="lastName"
+                    onChange={(event) => {
+                      setLastname(event.target.value);
+                    }}
+                  />
               </InputGroup>
-              <Button variant="btn btn-outline-dark">Add</Button>
-
+              <Button
+                variant="btn btn-outline-dark"
+                onClick={() => {
+                  setPeople((current) => [{ name, lastName }, ...current]);
+                }}
+              >
+                  Add
+              </Button>
+              <br />
                   <ol class="list">
-                    <li><a href="">List item</a></li>
+                    {people.map((person, idx) => (
+                      <li id={idx}><a href="">{`${person.name} ${person.lastName}`}</a></li>
+                    ))}
+                    {/* <li><a href="">List item</a></li> */}
                   </ol>
                </Container>
             </Container>
