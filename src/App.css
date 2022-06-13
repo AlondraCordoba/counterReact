@@ -10,6 +10,14 @@
   background-image: -webkit-linear-gradient( 135deg, rgba(60, 8, 118, 0.8) 0%, rgba(250, 0, 118, 0.8) 100%) !important;
   background-image: -ms-linear-gradient( 135deg, rgba(60, 8, 118, 0.8) 0%, rgba(250, 0, 118, 0.8) 100%) !important;
   background-image: linear-gradient( 135deg, rgba(60, 8, 118, 0.8) 0%, rgba(250, 0, 118, 0.8) 100%) !important;
+  /* background-color: #f6f7dd;
+  background-image: -webkit-linear-gradient(146deg, #f6f7dd 0%, #decfac 15%, #c9ad7f 31%, #b5926d 64%, #a67c5b 80%, #6f4e37 100%);
+  background-image: -ms-linear-gradient(146deg, #f6f7dd 0%, #decfac 15%, #c9ad7f 31%, #b5926d 64%, #a67c5b 80%, #6f4e37 100%);
+  background-image: -ms-linear-gradient(146deg, #f6f7dd 0%, #decfac 15%, #c9ad7f 31%, #b5926d 64%, #a67c5b 80%, #6f4e37 100%);
+  background-image: linear-gradient(146deg, #f6f7dd 0%, #decfac 15%, #c9ad7f 31%, #b5926d 64%, #a67c5b 80%, #6f4e37 100%); */
+}
+.fixed-top{
+  background: #f8f9fade !important;
 }
 
 .imgLogo{
@@ -18,12 +26,13 @@
 }
 
 a {
-  color: #e38cb7;
+  color: #ffa3d1;
+  text-decoration: none;
 }
 
 a:hover,
 a:focus {
-  color: #d6619c;
+  color: #e4e4e4;
 }
 
 h1 {
@@ -193,82 +202,14 @@ p.lead {
 .tagline {
   font-size: 18px;
   font-weight: 300;
-  color: #ffb8f6;
+  color: #f9d8f4;
   max-width: 800px;
   margin: 0 auto;
-}
-
-.img-holder {
-  height: 0;
-  padding-bottom: 33%;
-  overflow: hidden;
-}
-
-@media (max-width:1200px) {
-  .img-holder {
-      padding-bottom: 50%;
-  }
-}
-
-@media (max-width:767px) {
-  .tagline {
-      font-size: 18px;
-  }
-  .img-holder {
-      padding-bottom: 100%;
-  }
-}
-
-.bg-gradient {
-  background-image: -moz-linear-gradient(
-    135deg,
-    rgba(60, 8, 118, 0.8) 0%,
-    rgba(250, 0, 118, 0.8) 100%
-  );
-  background-image: -webkit-linear-gradient(
-    135deg,
-    rgba(60, 8, 118, 0.8) 0%,
-    rgba(250, 0, 118, 0.8) 100%
-  );
-  background-image: -ms-linear-gradient(
-    135deg,
-    rgba(60, 8, 118, 0.8) 0%,
-    rgba(250, 0, 118, 0.8) 100%
-  );
-  background-image: linear-gradient(
-    135deg,
-    rgba(60, 8, 118, 0.8) 0%,
-    rgba(250, 0, 118, 0.8) 100%
-  );
-}
-
-.tagline {
-  font-size: 18px;
-  font-weight: 300;
-  color: #ffb8f6;
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.img-holder {
-  height: 0;
-  padding-bottom: 33%;
-  overflow: hidden;
-}
-
-@media (max-width: 1200px) {
-  .img-holder {
-    padding-bottom: 50%;
-  }
 }
 
 @media (max-width: 767px) {
   .tagline {
     font-size: 18px;
-  }
-
-  .img-holder {
-    padding-bottom: 100%;
   }
 }
 
