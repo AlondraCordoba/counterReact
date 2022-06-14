@@ -207,7 +207,7 @@ function App() {
                     className="calculatorButton calculatorButtonOperator"
                     onClick={deleteDigit}
                   >
-                    -
+                    x
                   </button>
                   <button onClick={() =>  updateCalculation("7")} className="calculatorButton">7</button>
                   <button onClick={() =>  updateCalculation("8")} className="calculatorButton">8</button>
