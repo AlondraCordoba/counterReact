@@ -30,22 +30,6 @@ function App() {
   const [response, setRepsonse] = useState("");
   const operators = ['/', '*', '+','-', '.'];
 
-  const generateDigits = () => {
-    const digits = [];
-    for (let i = 1; i < 10; i++){
-      digits.push(
-        <button
-          onClick={() => updateCalculation(i.toString())}
-          key={i}
-          className="calculatorButton"
-        >
-          {i}
-        </button>
-      );
-    }
-    return digits
-  }
-
   const updateCalculation = value =>{
     if (
       (operators.includes(value) && calculation === "") ||
@@ -56,14 +40,17 @@ function App() {
       setCalculation(calculation + value);
 
     if(!operators.includes(value)){
+      // eslint-disable-next-line no-eval
       setRepsonse(eval(calculation + value).toString());
     }
   }
   const calculate = () => {
-    if(calculation == ''){ return; }
+    if(calculation === ''){ return; }
+    // eslint-disable-next-line no-eval
     setCalculation(eval(calculation).toString());
   }
   const deleteDigit = () => {
+    // eslint-disable-next-line eqeqeq
     if(calculation == ''){ return; }
     const value = calculation.slice(0,-1);
     setCalculation(value);
@@ -188,18 +175,67 @@ function App() {
             <Container className="containerCalculator">
               <div className="calculator">
                 <div className="display">
-                  {response ? <span>{response}</span> : ''}&nbsp;{calculation || "0"}
+                  {response ? <span>{response}</span> : ""}&nbsp;
+                  {calculation || "0"}
                 </div>
                 <div className="calculatorButtons">
-                  <button className="calculatorButton calculatorButtonOperator" onClick={() => updateCalculation('/')}>/</button>
-                  <button className="calculatorButton calculatorButtonOperator" onClick={() => updateCalculation('*')}>*</button>
-                  <button className="calculatorButton calculatorButtonOperator" onClick={() => updateCalculation('+')}>+</button>
-                  <button className="calculatorButton calculatorButtonOperator" onClick={() => updateCalculation('-')}>-</button>
-                  <button className="calculatorButton calculatorButtonOperator" onClick={deleteDigit}>DEL</button>
-                  { generateDigits() }
-                  <button className="calculatorButton" onClick={() => updateCalculation('0')}>0</button>
-                  <button className="calculatorButton" onClick={() => updateCalculation('.')}>.</button>
-                  <button className="calculatorButton calculatorButtonEnter" onClick={calculate}>=</button>
+                  <button
+                    className="calculatorButton calculatorButtonOperator"
+                    onClick={() => updateCalculation("/")}
+                  >
+                    /
+                  </button>
+                  <button
+                    className="calculatorButton calculatorButtonOperator"
+                    onClick={() => updateCalculation("*")}
+                  >
+                    *
+                  </button>
+                  <button
+                    className="calculatorButton calculatorButtonOperator"
+                    onClick={() => updateCalculation("+")}
+                  >
+                    +
+                  </button>
+                  <button
+                    className="calculatorButton calculatorButtonOperator"
+                    onClick={() => updateCalculation("-")}
+                  >
+                    -
+                  </button>
+                  <button
+                    className="calculatorButton calculatorButtonOperator"
+                    onClick={deleteDigit}
+                  >
+                    -
+                  </button>
+                  <button onClick={() =>  updateCalculation("7")} className="calculatorButton">7</button>
+                  <button onClick={() =>  updateCalculation("8")} className="calculatorButton">8</button>
+                  <button onClick={() =>  updateCalculation("9")} className="calculatorButton">9</button>
+                  <button onClick={() =>  updateCalculation("4")} className="calculatorButton">4</button>
+                  <button onClick={() =>  updateCalculation("5")} className="calculatorButton">5</button>
+                  <button onClick={() =>  updateCalculation("6")} className="calculatorButton">6</button>
+                  <button onClick={() =>  updateCalculation("1")} className="calculatorButton">1</button>
+                  <button onClick={() =>  updateCalculation("2")} className="calculatorButton">2</button>
+                  <button onClick={() =>  updateCalculation("3")} className="calculatorButton">3</button>
+                  <button
+                    className="calculatorButton"
+                    onClick={() => updateCalculation("0")}
+                  >
+                    0
+                  </button>
+                  <button
+                    className="calculatorButton"
+                    onClick={() => updateCalculation(".")}
+                  >
+                    .
+                  </button>
+                  <button
+                    className="calculatorButton calculatorButtonEnter"
+                    onClick={calculate}
+                  >
+                    =
+                  </button>
                 </div>
               </div>
             </Container>
