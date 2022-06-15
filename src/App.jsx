@@ -1,14 +1,14 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState } from "react";
-import 'bootstrap/dist/css/bootstrap.min.css';
-import logo from './assets/img/logo.png';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import InputGroup from 'react-bootstrap/InputGroup';
-import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
+import "bootstrap/dist/css/bootstrap.min.css";
+import logo from "./assets/img/logo.png";
+import Nav from "react-bootstrap/Nav";
+import Navbar from "react-bootstrap/Navbar";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import InputGroup from "react-bootstrap/InputGroup";
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
 
 import "./App.css";
 
@@ -28,33 +28,37 @@ function App() {
 
   const [calculation, setCalculation] = useState("");
   const [response, setRepsonse] = useState("");
-  const operators = ['/', '*', '+','-', '.'];
+  const operators = ["/", "*", "+", "-", "."];
 
-  const updateCalculation = value =>{
+  const updateCalculation = (value) => {
     if (
       (operators.includes(value) && calculation === "") ||
       (operators.includes(value) && operators.includes(calculation.slice(-1)))
     ) {
       return;
     }
-      setCalculation(calculation + value);
+    setCalculation(calculation + value);
 
-    if(!operators.includes(value)){
+    if (!operators.includes(value)) {
       // eslint-disable-next-line no-eval
       setRepsonse(eval(calculation + value).toString());
     }
-  }
+  };
   const calculate = () => {
-    if(calculation === ''){ return; }
+    if (calculation === "") {
+      return;
+    }
     // eslint-disable-next-line no-eval
     setCalculation(eval(calculation).toString());
-  }
+  };
   const deleteDigit = () => {
     // eslint-disable-next-line eqeqeq
-    if(calculation == ''){ return; }
-    const value = calculation.slice(0,-1);
+    if (calculation == "") {
+      return;
+    }
+    const value = calculation.slice(0, -1);
     setCalculation(value);
-  }
+  };
 
   return (
     <div
@@ -209,15 +213,60 @@ function App() {
                   >
                     x
                   </button>
-                  <button onClick={() =>  updateCalculation("7")} className="calculatorButton">7</button>
-                  <button onClick={() =>  updateCalculation("8")} className="calculatorButton">8</button>
-                  <button onClick={() =>  updateCalculation("9")} className="calculatorButton">9</button>
-                  <button onClick={() =>  updateCalculation("4")} className="calculatorButton">4</button>
-                  <button onClick={() =>  updateCalculation("5")} className="calculatorButton">5</button>
-                  <button onClick={() =>  updateCalculation("6")} className="calculatorButton">6</button>
-                  <button onClick={() =>  updateCalculation("1")} className="calculatorButton">1</button>
-                  <button onClick={() =>  updateCalculation("2")} className="calculatorButton">2</button>
-                  <button onClick={() =>  updateCalculation("3")} className="calculatorButton">3</button>
+                  <button
+                    onClick={() => updateCalculation("7")}
+                    className="calculatorButton"
+                  >
+                    7
+                  </button>
+                  <button
+                    onClick={() => updateCalculation("8")}
+                    className="calculatorButton"
+                  >
+                    8
+                  </button>
+                  <button
+                    onClick={() => updateCalculation("9")}
+                    className="calculatorButton"
+                  >
+                    9
+                  </button>
+                  <button
+                    onClick={() => updateCalculation("4")}
+                    className="calculatorButton"
+                  >
+                    4
+                  </button>
+                  <button
+                    onClick={() => updateCalculation("5")}
+                    className="calculatorButton"
+                  >
+                    5
+                  </button>
+                  <button
+                    onClick={() => updateCalculation("6")}
+                    className="calculatorButton"
+                  >
+                    6
+                  </button>
+                  <button
+                    onClick={() => updateCalculation("1")}
+                    className="calculatorButton"
+                  >
+                    1
+                  </button>
+                  <button
+                    onClick={() => updateCalculation("2")}
+                    className="calculatorButton"
+                  >
+                    2
+                  </button>
+                  <button
+                    onClick={() => updateCalculation("3")}
+                    className="calculatorButton"
+                  >
+                    3
+                  </button>
                   <button
                     className="calculatorButton"
                     onClick={() => updateCalculation("0")}
@@ -243,7 +292,7 @@ function App() {
         </Container>
       </Container>
 
-      <Container className="light-bg py-5 footer1" id="footer">
+      <footer className="light-bg py-5 footer1" id="footer">
         <div className="container">
           <div className="row">
             <div className="col-lg-6 text-center text-lg-left">
@@ -267,43 +316,29 @@ function App() {
                 </p>
               </div>
             </div>
-            <div className="col-lg-6">
-              <div className="social-icons">
-                <a href="#">
-                  <span className="ti-facebook"></span>
+            <div className="col-lg-6 text-center text-lg-left">
+              <p className="mb-2">
+                <small className="text-white">
+                  COPYRIGHT © 2022. ALL RIGHTS RESERVED
+                </small>
+              </p>
+              <small>
+                <a href="#" className="m-2">
+                  191286
                 </a>
-                <a href="#">
-                  <span className="ti-twitter-alt"></span>
+                <a href="#" className="m-2">
+                  IDGS 9A
                 </a>
-                <a href="#">
-                  <span className="ti-instagram"></span>
+                <a href="#" className="m-2">
+                  DWI
                 </a>
-              </div>
+                <a href="#" className="m-2">
+                  UTAGS
+                </a>
+              </small>
             </div>
           </div>
         </div>
-      </Container>
-
-      <footer className="text-center">
-        <p className="mb-2">
-          <small className="text-white">
-            COPYRIGHT © 2022. ALL RIGHTS RESERVED
-          </small>
-        </p>
-        <small>
-          <a href="#" className="m-2">
-            191286
-          </a>
-          <a href="#" className="m-2">
-            IDGS 9A
-          </a>
-          <a href="#" className="m-2">
-            DWI
-          </a>
-          <a href="#" className="m-2">
-            UTAGS
-          </a>
-        </small>
       </footer>
     </div>
   );
